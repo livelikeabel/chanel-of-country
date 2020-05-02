@@ -1,11 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Main from './Page/Main.jsx';
+import rootReducer from "./ducks";
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from 'react-redux';
+
+const store = createStore(rootReducer);
 
 const App = () => {
   return (
-    <div>
-      <p>hello</p>
-    </div>
+    <Provider store={store}>
+      <Main/>
+    </Provider>
   );
 };
 
