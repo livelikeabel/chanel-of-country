@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Main from './Page/Main.jsx';
 import rootReducer from "./ducks";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from 'react-redux';
+import CountryContainer from "./containers/CountryContainer";
 
 const store = createStore(rootReducer);
 
 const App = () => {
   return (
     <Provider store={store}>
-      <Main/>
+      <CountryContainer/>
     </Provider>
   );
 };
