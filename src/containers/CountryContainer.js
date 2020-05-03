@@ -2,22 +2,19 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { loadCountries } from "../ducks/country";
 
-const CountryContainer = () => {
+const CountryContainer = ({ loadCountries, countries }) => {
   useEffect(() => {
     loadCountries()
   }, []);
 
   return (
     <div>
-      {/*<Country/>*/}
+      {/*<Country countries={countries}/>*/}
     </div>
   )
 };
 
-const mapStateToProps = state => ({});
-
-const mapDispatchToProps = {
-  loadCountries
-};
+const mapStateToProps = ({ country }) => ({ countries: country.countries });
+const mapDispatchToProps = { loadCountries };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CountryContainer);
