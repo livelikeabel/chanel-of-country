@@ -1,15 +1,19 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { loadCountries } from "../ducks/country";
+import Country from "../components/Country.jsx";
 
 const CountryContainer = ({ loadCountries, countries }) => {
   useEffect(() => {
     loadCountries()
-  }, []);
+  }, [loadCountries]);
 
   return (
     <div>
-      {/*<Country countries={countries}/>*/}
+      {
+        countries.length !== 0 &&
+        <Country countries={countries}/>
+      }
     </div>
   )
 };
